@@ -1,0 +1,12 @@
+///****************************************************
+///*** Created by Fady Fouad on 30-Dec-19 at 21:18.***
+///***************************************************/
+
+class Transaction {
+  final String id;
+  final String title;
+  final double amount;
+  final DateTime date;
+
+  Transaction({this.id, this.title, this.amount, this.date});
+}
