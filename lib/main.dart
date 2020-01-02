@@ -22,6 +22,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  var title = '';
+  var price = '';
   final List<Transaction> transactions = [
     Transaction(id: '1', price: 09.99, title: 'Item 01', date: DateTime.now()),
     Transaction(id: '2', price: 12.99, title: 'Item 02', date: DateTime.now()),
@@ -45,15 +47,24 @@ class MyHomePage extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     TextField(
-                      decoration: InputDecoration(labelText: 'Title'),
-                    ),
+                        decoration: InputDecoration(labelText: 'Title'),
+                        onChanged: (sTitle) {
+                          title = sTitle;
+                        }),
                     TextField(
                       decoration: InputDecoration(labelText: 'price'),
+                      onChanged: (sPrice) {
+                        price = sPrice;
+                      },
                     ),
                     FlatButton(
                       child: Text('Add'),
                       onPressed: () {
-                        var title = '';
+                        transactions.add(Transaction(
+                            id: '1',
+                            title: title,
+                            price: 1.1,
+                            date: DateTime.now()));
                       },
                       textColor: Colors.purple,
                     )
