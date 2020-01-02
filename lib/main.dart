@@ -1,5 +1,9 @@
 import 'package:expnse_planner_app/transaction.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+import 'chart.dart';
 
 void main() => runApp(MyApp());
 
@@ -19,10 +23,10 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   final List<Transaction> transactions = [
-    Transaction(id: '1', amount: 9.99, title: 'Ball', date: DateTime.now()),
-    Transaction(id: '2', amount: 12.99, title: 'Ball', date: DateTime.now()),
-    Transaction(id: '3', amount: 29.99, title: 'Ball', date: DateTime.now()),
-    Transaction(id: '4', amount: 3.99, title: 'Ball', date: DateTime.now())
+    Transaction(id: '1', price: 09.99, title: 'Item 01', date: DateTime.now()),
+    Transaction(id: '2', price: 12.99, title: 'Item 02', date: DateTime.now()),
+    Transaction(id: '3', price: 29.99, title: 'Item 03', date: DateTime.now()),
+    Transaction(id: '4', price: 03.99, title: 'Item 04', date: DateTime.now())
   ];
 
   @override
@@ -33,30 +37,48 @@ class MyHomePage extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
-            Card(
-              child: Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(8),
-                child: Text(
-                  'Chart !',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 30,
-                  ),
-                ),
-              ),
-              elevation: 3,
-              margin: EdgeInsets.all(8),
-            ),
+            Chart(),
             Container(
               width: double.infinity,
-              child: Card(
-                child: Column(
-                  children: transactions.map((transaction) {
-                    return Card(
-                      child: Text(transaction.title),
-                    );
-                  }).toList(),
+              padding: EdgeInsets.all(8),
+              child: Container(
+                child: Card(
+                  margin: EdgeInsets.all(0),
+                  child: Column(
+                    children: transactions.map((transaction) {
+                      return Card(
+                        margin: EdgeInsets.all(8),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Column(
+                                children: <Widget>[
+                                  Text('${transaction.title}'),
+                                  Text(
+                                    '${DateFormat('dd-mm-yyyy').format(
+                                        transaction.date)}',
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                child: Text(
+                                  ' ${transaction.price} \$',
+                                  style: (TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.purple,
+                                  )),
+                                ),
+                                padding: EdgeInsets.all(4),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
                 ),
               ),
             ),
