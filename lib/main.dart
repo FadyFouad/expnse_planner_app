@@ -38,6 +38,29 @@ class MyHomePage extends StatelessWidget {
         body: Column(
           children: <Widget>[
             Chart(),
+            Card(
+              elevation: 3,
+              child: Container(
+                margin: EdgeInsets.all(5),
+                child: Column(
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'price'),
+                    ),
+                    FlatButton(
+                      child: Text('Add'),
+                      onPressed: () {
+                        var title = '';
+                      },
+                      textColor: Colors.purple,
+                    )
+                  ],
+                ),
+              ),
+            ),
             Container(
               width: double.infinity,
               padding: EdgeInsets.all(8),
@@ -55,9 +78,14 @@ class MyHomePage extends StatelessWidget {
                             children: <Widget>[
                               Column(
                                 children: <Widget>[
-                                  Text('${transaction.title}'),
                                   Text(
-                                    '${DateFormat('dd-mm-yyyy').format(
+                                    '${transaction.title}',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    '${DateFormat().add_yMMMd().format(
                                         transaction.date)}',
                                     style: TextStyle(color: Colors.grey),
                                   ),
