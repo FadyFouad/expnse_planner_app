@@ -63,7 +63,7 @@ class MyHomePage extends StatelessWidget {
                       textColor: Colors.purple,
                     )
                   ],
-                ),
+                ), //addTX
               ),
             ),
             Container(
@@ -77,6 +77,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ],
-        ));
+        ),
+    );
   }
 }
