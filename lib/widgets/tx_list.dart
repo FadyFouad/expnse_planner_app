@@ -7,18 +7,11 @@ import '../transaction.dart';
 ///*** Created by Fady Fouad on 03-Jan-20 at 00:06.***
 ///***************************************************/
 
-class TxList extends StatefulWidget {
-  @override
-  _TxListState createState() => _TxListState();
-}
+class TxList extends StatelessWidget {
 
-class _TxListState extends State<TxList> {
-  final List<Transaction> transactions = [
-    Transaction(id: '1', price: 09.99, title: 'Item 01', date: DateTime.now()),
-    Transaction(id: '2', price: 12.99, title: 'Item 02', date: DateTime.now()),
-    Transaction(id: '3', price: 29.99, title: 'Item 03', date: DateTime.now()),
-    Transaction(id: '4', price: 03.99, title: 'Item 04', date: DateTime.now())
-  ];
+  final List<Transaction> transactions;
+
+  const TxList({Key key, this.transactions}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
