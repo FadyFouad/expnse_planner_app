@@ -31,7 +31,8 @@ class MyHomePage extends StatelessWidget {
         appBar: AppBar(
           title: Text('Expense Planner'),
         ),
-        body: Column(
+      body: SingleChildScrollView(
+        child: Column(
           children: <Widget>[
             Chart(),
 //            AddTx(),
@@ -40,12 +41,13 @@ class MyHomePage extends StatelessWidget {
               padding: EdgeInsets.all(8),
               child: Container(
                 child: Card(
-                  margin: EdgeInsets.all(0),
+                    margin: EdgeInsets.all(0),
                     child: UserTx()
                 ),
               ),
             ),
           ],
+        ),
         ),
     );
   }
