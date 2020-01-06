@@ -27,17 +27,17 @@ class AddTx extends StatelessWidget {
             TextField(
               decoration: InputDecoration(labelText: 'price'),
               controller: price,
+              keyboardType: TextInputType.number,
+              onSubmitted: (val) {
+                addTx(title.text, double.parse(price.text));
+              },
             ),
             FlatButton(
               child: Text('Add'),
               onPressed: () {
                 addTx(title.text, double.parse(price.text));
-//                        transactions.add(Transaction(
-//                            id: '1',
-//                            title: title,
-//                            price: 1.1,
-//                            date: DateTime.now()));
               },
+
               textColor: Colors.purple,
             )
           ],
