@@ -11,6 +11,14 @@ class AddTx extends StatelessWidget {
 
   AddTx({this.addTx});
 
+  void submitData() {
+    var dPrice = double.parse(price.text);
+    if (title.text.isEmpty || dPrice <= 0) {
+      return;
+    }
+    addTx(title.text, dPrice);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,15 +36,11 @@ class AddTx extends StatelessWidget {
               decoration: InputDecoration(labelText: 'price'),
               controller: price,
               keyboardType: TextInputType.number,
-              onSubmitted: (val) {
-                addTx(title.text, double.parse(price.text));
-              },
+              onSubmitted: (_) => submitData(),
             ),
             FlatButton(
               child: Text('Add'),
-              onPressed: () {
-                addTx(title.text, double.parse(price.text));
-              },
+              onPressed: submitData,
 
               textColor: Colors.purple,
             )
