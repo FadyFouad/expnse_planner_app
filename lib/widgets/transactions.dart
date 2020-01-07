@@ -16,9 +16,6 @@ class UserTx extends StatefulWidget {
 class _UserTxState extends State<UserTx> {
   final transaction = [
     Transaction(id: '1', price: 09.99, title: 'Item 01', date: DateTime.now()),
-//    Transaction(id: '2', price: 12.99, title: 'Item 02', date: DateTime.now()),
-//    Transaction(id: '3', price: 29.99, title: 'Item 03', date: DateTime.now()),
-//    Transaction(id: '4', price: 03.99, title: 'Item 04', date: DateTime.now())
   ];
 
   @override

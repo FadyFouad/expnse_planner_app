@@ -15,7 +15,7 @@ class TxList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: 400,
       child: ListView.builder(
         itemBuilder: (BuildContext context, int index) {
           return Card(
