@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Expense Planner',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
+        accentColor: Colors.purpleAccent,
       ),
       home: MyHomePage(),
     );
@@ -68,7 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
     showModalBottomSheet(
         context: context,
         builder: (_) {
-          return AddTx(addTx: _addTx,);
+          return AddTx(
+            addTx: _addTx,
+          );
         });
   }
 

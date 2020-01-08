@@ -44,7 +44,9 @@ class TxList extends StatelessWidget {
                       ' ${transactions[index].price.toStringAsFixed(2)} \$',
                       style: (TextStyle(
                         fontSize: 16,
-                        color: Colors.purple,
+                        color: Theme
+                            .of(context)
+                            .primaryColor,
                       )),
                     ),
                     padding: EdgeInsets.all(4),

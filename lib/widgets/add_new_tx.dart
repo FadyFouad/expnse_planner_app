@@ -49,7 +49,9 @@ class _AddTxState extends State<AddTx> {
                   child: Text('Add'),
                   onPressed: submitData,
 
-                  textColor: Colors.purple,
+                  textColor: Theme
+                      .of(context)
+                      .primaryColor,
                 )
               ],
             ),
