@@ -43,7 +43,8 @@ class TxList extends StatelessWidget {
                     child: Text(
                       ' ${transactions[index].price.toStringAsFixed(2)} \$',
                       style: (TextStyle(
-                        fontSize: 16,
+                        fontSize: 20,
+                        fontFamily: 'FFTaweel',
                         color: Theme
                             .of(context)
                             .primaryColor,
