@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -16,7 +17,12 @@ class TxList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 400,
-      child: ListView.builder(
+      child: transactions.isEmpty
+          ? Image.asset(
+        'assets/images/waiting.png',
+        fit: BoxFit.fill,
+      )
+          : ListView.builder(
         itemBuilder: (BuildContext context, int index) {
           return Card(
             margin: EdgeInsets.all(8),
@@ -30,11 +36,12 @@ class TxList extends StatelessWidget {
                       Text(
                         '${transactions[index].title}',
                         style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        '${DateFormat().add_yMMMd().format(
-                            transactions[index].date)}',
+                        '${DateFormat().add_yMMMd().format(transactions[index]
+                            .date)}',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ],
@@ -58,7 +65,6 @@ class TxList extends StatelessWidget {
           );
         },
         itemCount: transactions.length,
-
       ),
     );
   }

@@ -14,9 +14,7 @@ class UserTx extends StatefulWidget {
 }
 
 class _UserTxState extends State<UserTx> {
-  final transaction = [
-    Transaction(id: '1', price: 09.99, title: 'Item 01', date: DateTime.now()),
-  ];
+  final transaction = [];
 
   @override
   Widget build(BuildContext context) {

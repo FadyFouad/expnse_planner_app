@@ -39,8 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
-            onPressed: () {},
-          )
+            onPressed: () => showAddNewTxSheet(context),
+          ),
         ],
       ),
       body: SingleChildScrollView(
@@ -77,8 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 
-  final transactions = [
-    Transaction(id: '1', price: 09.99, title: 'Item 01', date: DateTime.now()),
+  final List<Transaction> transactions = [
+//    Transaction(id: '1', price: 09.99, title: 'Item 01', date: DateTime.now()),
   ];
 
   void _addTx(String title, double price) {
