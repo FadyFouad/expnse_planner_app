@@ -53,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.all(8),
               child: Container(
                 child: Card(
+                  elevation: 0,
                   margin: EdgeInsets.all(0),
                   child: TxList(
                     transactions: transactions,

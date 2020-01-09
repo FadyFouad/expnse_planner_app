@@ -33,7 +33,7 @@ class Chart extends StatelessWidget {
           }).toList(),
         ),
       ),
-      elevation: 3,
+      elevation: 5,
       margin: EdgeInsets.all(8),
     );
   }

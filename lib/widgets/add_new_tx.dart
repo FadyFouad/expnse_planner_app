@@ -46,9 +46,11 @@ class _AddTxState extends State<AddTx> {
                   onSubmitted: (_) => submitData(),
                 ),
                 FlatButton(
-                  child: Text('Add'),
+                  child: Text(
+                    'ADD',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
                   onPressed: submitData,
-
                   textColor: Theme
                       .of(context)
                       .primaryColor,
