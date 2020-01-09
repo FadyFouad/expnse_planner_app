@@ -1,10 +1,9 @@
 import 'package:expnse_planner_app/transaction.dart';
 import 'package:expnse_planner_app/widgets/add_new_tx.dart';
+import 'package:expnse_planner_app/widgets/chart.dart';
 import 'package:expnse_planner_app/widgets/tx_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/chart.dart';
 
 void main() => runApp(MyApp());
 
@@ -46,7 +45,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Chart(),
+            Chart(
+              transactions: transactions,
+            ),
             Container(
               width: double.infinity,
               padding: EdgeInsets.all(8),
@@ -77,9 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
         });
   }
 
-  final List<Transaction> transactions = [
-//    Transaction(id: '1', price: 09.99, title: 'Item 01', date: DateTime.now()),
-  ];
+  final List<Transaction> transactions = [];
 
   void _addTx(String title, double price) {
     setState(() {
@@ -94,5 +93,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
       Navigator.of(context).pop();
     });
+  }
+
+  List<Transaction> get recentTx {
+    return transactions.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
   }
 }
