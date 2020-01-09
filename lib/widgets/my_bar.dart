@@ -19,8 +19,11 @@ class Bar extends StatelessWidget {
         fit: FlexFit.tight,
         child: Column(
           children: <Widget>[
-            FittedBox(
-              child: Text('\$${spendMoney.toStringAsFixed(0)}'),
+            Container(
+              height: 20,
+              child: FittedBox(
+                child: Text('\$${spendMoney.toStringAsFixed(0)}'),
+              ),
             ),
             SizedBox(
               height: 4,
