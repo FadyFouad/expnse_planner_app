@@ -81,14 +81,14 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Transaction> transactions = [];
 
-  void _addTx(String title, double price) {
+  void _addTx(String title, double price, DateTime dateTime) {
     setState(() {
       transactions.add(
         Transaction(
           id: 'id',
           title: title,
           price: price,
-          date: DateTime.now(),
+          date: dateTime,
         ),
       );
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 ///****************************************************
 ///*** Created by Fady Fouad on 06-Jan-20 at 20:50.***
@@ -15,15 +16,16 @@ class AddTx extends StatefulWidget {
 
 class _AddTxState extends State<AddTx> {
   final title = TextEditingController();
-
   final price = TextEditingController();
+  DateTime dateTime;
 
   void submitData() {
     var dPrice = double.parse(price.text);
-    if (title.text.isEmpty || dPrice <= 0) {
+    if (title.text.isEmpty || dPrice <= 0 || dateTime == null) {
+      dateTime = DateTime.now();
       return;
     }
-    widget.addTx(title.text, dPrice);
+    widget.addTx(title.text, dPrice, dateTime);
   }
 
   @override
@@ -49,7 +51,9 @@ class _AddTxState extends State<AddTx> {
                   height: 70,
                   child: Row(
                     children: <Widget>[
-                      Text('No Date Chosen'),
+                      dateTime == null
+                          ? Text('No Date Chosen')
+                          : Text('${DateFormat.yMMMMd().format(dateTime)}'),
                       FlatButton(
                         child: Text(
                           'Choose a date',
@@ -89,6 +93,14 @@ class _AddTxState extends State<AddTx> {
         context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime(2019),
-        lastDate: DateTime.now());
+        lastDate: DateTime.now())
+        .then((date) {
+      if (date == null) {
+        return;
+      }
+      setState(() {
+        dateTime = date;
+      });
+    });
   }
 }
