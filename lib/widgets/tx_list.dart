@@ -10,8 +10,10 @@ import '../transaction.dart';
 
 class TxList extends StatelessWidget {
   final List<Transaction> transactions;
+  final Function delTransactions;
 
-  const TxList({Key key, this.transactions}) : super(key: key);
+  const TxList({Key key, this.transactions, this.delTransactions})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +59,8 @@ class TxList extends StatelessWidget {
                     .date)}',
                 style: TextStyle(color: Colors.grey),
               ),
+              trailing: IconButton(icon: Icon(Icons.delete), onPressed: () =>
+                  delTransactions(transactions[index].id),),
             ),
           );
         },

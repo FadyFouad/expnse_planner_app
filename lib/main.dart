@@ -57,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   margin: EdgeInsets.all(0),
                   child: TxList(
                     transactions: transactions,
+                    delTransactions: _deleteTx,
                   ),
                 ),
               ),
@@ -85,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       transactions.add(
         Transaction(
-          id: 'id',
+          id: '$DateTime.now())',
           title: title,
           price: price,
           date: dateTime,
@@ -93,6 +94,14 @@ class _MyHomePageState extends State<MyHomePage> {
       );
 
       Navigator.of(context).pop();
+    });
+  }
+
+  void _deleteTx(String id) {
+    setState(() {
+      transactions.removeWhere((tx) {
+        return tx.id == id;
+      });
     });
   }
 
