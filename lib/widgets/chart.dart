@@ -1,4 +1,5 @@
 import 'package:expnse_planner_app/transaction.dart';
+import 'package:expnse_planner_app/widgets/my_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -19,13 +20,15 @@ class Chart extends StatelessWidget {
         width: double.infinity,
         padding: EdgeInsets.all(8),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: transactionGroup.map((tx) {
-            return Column(
-              children: <Widget>[
-                Text('${tx['amount']}\$'),
-                Text('||'),
-                Text('${tx['day']}'),
-              ],
+            double spendPercentage =
+            totalWeekSpendding == 0 ? 0 : (tx['amount'] as double) /
+                totalWeekSpendding;
+            return Bar(
+              spendMoney: tx['amount'],
+              spendPercentage: spendPercentage,
+              lable: tx['day'],
             );
           }).toList(),
         ),
@@ -35,6 +38,11 @@ class Chart extends StatelessWidget {
     );
   }
 
+  double get totalWeekSpendding {
+    return transactionGroup.fold(0.0, (sum, daySpending) {
+      return sum += daySpending['amount'];
+    });
+  }
 
   List<Map<String, Object>> get transactionGroup {
     return List.generate(7, (index) {
