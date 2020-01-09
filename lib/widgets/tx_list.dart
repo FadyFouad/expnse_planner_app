@@ -59,45 +59,6 @@ class TxList extends StatelessWidget {
               ),
             ),
           );
-//            Card(
-//            margin: EdgeInsets.all(8),
-//            child: Padding(
-//              padding: const EdgeInsets.all(8.0),
-//              child: Row(
-//                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                children: <Widget>[
-//                  Column(
-//                    children: <Widget>[
-//                      Text(
-//                        '${transactions[index].title}',
-//                        style: TextStyle(
-//                            color: Colors.black,
-//                            fontWeight: FontWeight.bold),
-//                      ),
-//                      Text(
-//                        '${DateFormat().add_yMMMd().format(transactions[index]
-//                            .date)}',
-//                        style: TextStyle(color: Colors.grey),
-//                      ),
-//                    ],
-//                  ),
-//                  Container(
-//                    child: Text(
-//                      ' ${transactions[index].price.toStringAsFixed(2)} \$',
-//                      style: (TextStyle(
-//                        fontSize: 20,
-//                        fontFamily: 'FFTaweel',
-//                        color: Theme
-//                            .of(context)
-//                            .primaryColor,
-//                      )),
-//                    ),
-//                    padding: EdgeInsets.all(4),
-//                  ),
-//                ],
-//              ),
-//            ),
-//          );
         },
         itemCount: transactions.length,
       ),

@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Expense Planner',
       theme: ThemeData(
         primarySwatch: Colors.purple,
-        accentColor: Colors.purpleAccent,
+        accentColor: Colors.pinkAccent,
         fontFamily: 'Cour',
 //        appBarTheme: AppBarTheme()
       ),

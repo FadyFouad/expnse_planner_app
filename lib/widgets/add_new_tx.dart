@@ -45,19 +45,50 @@ class _AddTxState extends State<AddTx> {
                   keyboardType: TextInputType.number,
                   onSubmitted: (_) => submitData(),
                 ),
-                FlatButton(
+                Container(
+                  height: 70,
+                  child: Row(
+                    children: <Widget>[
+                      Text('No Date Chosen'),
+                      FlatButton(
+                        child: Text(
+                          'Choose a date',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        onPressed: showDate,
+                        textColor: Theme
+                            .of(context)
+                            .primaryColor,
+                      )
+                    ],
+                  ),
+                ),
+                RaisedButton(
                   child: Text(
                     'ADD',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Theme
+                            .of(context)
+                            .buttonColor),
                   ),
                   onPressed: submitData,
-                  textColor: Theme
+                  color: Theme
                       .of(context)
                       .primaryColor,
-                )
+                ),
               ],
             ),
           ),
         ));
+  }
+
+  void showDate() {
+    showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2019),
+        lastDate: DateTime.now());
   }
 }
