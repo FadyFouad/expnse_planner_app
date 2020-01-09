@@ -22,9 +22,9 @@ class Chart extends StatelessWidget {
           children: transactionGroup.map((tx) {
             return Column(
               children: <Widget>[
-                Text('\$'),
+                Text('${tx['amount']}\$'),
                 Text('||'),
-                Text('d'),
+                Text('${tx['day']}'),
               ],
             );
           }).toList(),
